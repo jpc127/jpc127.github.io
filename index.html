@@ -3,23 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Homepage of Jaivi Chandola</title>
+    <title>My Student Portfolio</title>
     <style>
+        /* Base Reset */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            padding: 40px 20px;
+            padding-top: 70px; /* Prevents menu from covering text */
         }
-        .container {
-            max-width: 800px;
+
+        /* Top Navigation Menu Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #24292e;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1000px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .nav-logo {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        .nav-menu a {
+            color: #c8c9ca;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-menu a:hover {
+            color: #fff;
+        }
+
+        /* Main Container layout */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
             background: #fff;
             padding: 40px;
             border-radius: 8px;
@@ -29,7 +75,7 @@
             text-align: center;
             border-bottom: 2px solid #eaeaea;
             padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         h1 {
             color: #24292e;
@@ -40,79 +86,162 @@
             color: #586069;
             font-size: 1.2rem;
         }
+
+        /* Content Sections */
         section {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
+            scroll-margin-top: 90px; /* Offset for sticky nav bar */
         }
         h2 {
             color: #0366d6;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
             border-left: 4px solid #0366d6;
             padding-left: 10px;
+        }
+
+        /* Cards and Lists */
+        .card {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            color: #24292e;
+            margin-bottom: 8px;
         }
         ul {
             list-style-position: inside;
             margin-left: 10px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-        .project-card {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            padding: 15px;
+
+        /* Placeholder Art Grid */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .art-item {
+            background: #eee;
+            border: 1px solid #ddd;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
             border-radius: 6px;
-            margin-bottom: 15px;
+            font-style: italic;
         }
-        .project-card h3 {
-            color: #24292e;
-            margin-bottom: 5px;
-        }
+
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
             padding-top: 20px;
             border-top: 1px solid #eaeaea;
             color: #6a737d;
             font-size: 0.9rem;
         }
+
+        /* Mobile Responsive layout changes */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            body {
+                padding-top: 110px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Sticky Top Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">My Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="#learning">My Learning</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#art">My Art</a></li>
+                <li><a href="#community">Community Service</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
-            <h1>Welcome to My Portfolio</h1>
-            <p class="subtitle">High School Student & Aspiring Creator</p>
+            <h1>Welcome to My Student Space</h1>
+            <p class="subtitle">High School Portfolio & Creative Archive</p>
         </header>
 
-        <section>
-            <h2>About Me</h2>
-            <p>Hello! I am a high school student interested in technology, science, and learning new skills. This website is where I showcase my school projects, extracurricular activities, and things I build.</p>
-        </section>
-
-        <section>
-            <h2>Featured Projects</h2>
-            
-            <div class="project-card">
-                <h3>Project Title 1</h3>
-                <p>A brief description of a school project, science fair entry, or coding experiment you worked on. Explain what tools you used and what you learned.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Project Title 2</h3>
-                <p>Another description of your work. You can add links to other pages or files here later as you build out your repository.</p>
+        <!-- My Learning Section -->
+        <section id="learning">
+            <h2>My Learning</h2>
+            <div class="card">
+                <h3>Current Coursework & Goals</h3>
+                <p>List your favorite subjects, AP/IB classes, or online bootcamps here. Mention topics you enjoy exploring during study hours or group projects.</p>
             </div>
         </section>
 
-        <section>
-            <h2>Skills & Interests</h2>
+        <!-- Research Section -->
+        <section id="research">
+            <h2>Research</h2>
+            <div class="card">
+                <h3>Project Title / Lab Work</h3>
+                <p>Detail any science projects, literature analysis, history papers, or technical papers you have written. Discuss your main hypothesis, tools used, and key findings.</p>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards">
+            <h2>Awards</h2>
             <ul>
-                <li><strong>Languages/Tools:</strong> HTML, CSS, Basics of Python</li>
-                <li><strong>Extracurriculars:</strong> Robotics Club, School Band, Soccer</li>
-                <li><strong>Interests:</strong> Web Design, Environmental Science, Photography</li>
+                <li><strong>Honor Roll</strong> - Achieved top academic marks across all standard terms.</li>
+                <li><strong>Science Fair Finalist</strong> - Awarded recognition for original research build.</li>
+                <li><strong>Competitions</strong> - Add athletic, musical, or math league trophies here.</li>
             </ul>
         </section>
 
+        <!-- My Art Section -->
+        <section id="art">
+            <h2>My Art</h2>
+            <p>A display of your sketches, photography, digital design, or musical recordings.</p>
+            <div class="art-grid">
+                <div class="art-item">[ Image Placeholder 1 ]</div>
+                <div class="art-item">[ Image Placeholder 2 ]</div>
+                <div class="art-item">[ Image Placeholder 3 ]</div>
+            </div>
+        </section>
+
+        <!-- Community Service Section -->
+        <section id="community">
+            <h2>Community Service</h2>
+            <div class="card">
+                <h3>Volunteer Coordinator</h3>
+                <p>Describe your volunteer hours, club work, or community events. Highlight your tasks, hours served, and how your group impacted the local neighborhood.</p>
+            </div>
+        </section>
+
         <footer>
-            <p>&copy; 2026 My Student Portfolio. Powered by 
+            <p>&copy; 2026 My Student Portfolio. Powered by GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
