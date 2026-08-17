@@ -1,541 +1,563 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Student Portfolio</title>
     <style>
-        /* Base Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-            padding-top: 70px; /* Prevents menu from covering text */
-        }
+/* Base Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      padding-top: 70px; /* Prevents menu from covering text */
+    }
 
-        /* Top Navigation Menu Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #24292e;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-        .nav-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        .nav-logo {
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-        .nav-menu a {
-            color: #c8c9ca;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        .nav-menu a:hover {
-            color: #fff;
-        }
+    /* Top Navigation Menu Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #24292e;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .nav-logo {
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    .nav-menu a {
+      color: #c8c9ca;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .nav-menu a:hover {
+      color: #fff;
+    }
 
-        /* Main Container layout */
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-        h1 {
-            color: #24292e;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p.subtitle {
-            color: #586069;
-            font-size: 1.2rem;
-        }
+    /* Main Container layout */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    header {
+      text-align: center;
+      border-bottom: 2px solid #eaeaea;
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #24292e;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      color: #586069;
+      font-size: 1.2rem;
+    }
 
-        /* Content Sections */
-        section {
-            margin-bottom: 50px;
-            scroll-margin-top: 90px; /* Offset for sticky nav bar */
-        }
-        h2 {
-            color: #0366d6;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            border-left: 4px solid #0366d6;
-            padding-left: 10px;
-        }
+    /* Content Sections */
+    section {
+      margin-bottom: 50px;
+      scroll-margin-top: 90px; /* Offset for sticky nav bar */
+    }
+    h2 {
+      color: #0366d6;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      border-left: 4px solid #0366d6;
+      padding-left: 10px;
+    }
 
-        /* Cards and Lists */
-        .card {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-        }
-        .card h3 {
-            color: #24292e;
-            margin-bottom: 8px;
-        }
-        ul {
-            list-style-position: inside;
-            margin-left: 10px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
+    /* Cards and Lists */
+    .card {
+      background: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      color: #24292e;
+      margin-bottom: 8px;
+    }
+    ul {
+      list-style-position: inside;
+      margin-left: 10px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
 
-        /* Improved Art Grid Layout */
-        .art-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-        .art-card {
-            background: #fff;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease;
-        }
-        .art-card:hover {
-            transform: translateY(-2px);
-        }
-        .art-image-wrapper {
-            background: #eaeaea;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            overflow: hidden;
-            position: relative;
-        }
-        .art-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.2s;
-        }
-        .art-image-wrapper img:hover {
-            opacity: 0.9;
-        }
-        /* Fallback text styles inside wrapper if image fails to load */
-        .art-placeholder-text {
-            position: absolute;
-            color: #6a737d;
-            font-style: italic;
-            pointer-events: none;
-        }
-        .art-details {
-            padding: 15px;
-        }
-        .art-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #24292e;
-            margin-bottom: 5px;
-        }
-        .art-meta {
-            font-size: 0.85rem;
-            color: #586069;
-            line-height: 1.4;
-        }
-        .art-meta strong {
-            color: #444;
-        }
+    /* Improved Art Grid Layout */
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .art-card {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+    .art-card:hover {
+      transform: translateY(-2px);
+    }
+    .art-image-wrapper {
+      background: #eaeaea;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+    .art-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.2s;
+    }
+    .art-image-wrapper img:hover {
+      opacity: 0.9;
+    }
+    /* Fallback text styles inside wrapper if image fails to load */
+    .art-placeholder-text {
+      position: absolute;
+      color: #6a737d;
+      font-style: italic;
+      pointer-events: none;
+    }
+    .art-details {
+      padding: 15px;
+    }
+    .art-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #24292e;
+      margin-bottom: 5px;
+    }
+    .art-meta {
+      font-size: 0.85rem;
+      color: #586069;
+      line-height: 1.4;
+    }
+    .art-meta strong {
+      color: #444;
+    }
 
-        /* Magnify / Lightbox Pop-up System */
-        .lightbox {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 85%;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            cursor: default;
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    /* Magnify / Lightbox Pop-up System */
+    .lightbox {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eaeaea;
-            color: #6a737d;
-            font-size: 0.9rem;
-        }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #eaeaea;
+      color: #6a737d;
+      font-size: 0.9rem;
+    }
 
-	        /* Research Layout System */
-        .research-container {
-            display: flex;
-            gap: 30px;
-            background: #fff;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .research-info {
-            flex: 1.3; /* Gives slightly more horizontal space to text */
-        }
-        .research-visual {
-            flex: 0.7;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .research-title {
-            font-size: 1.4rem;
-            color: #24292e;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-        .research-field {
-            margin-bottom: 20px;
-        }
-        .research-field:last-child {
-            margin-bottom: 0;
-        }
-        .field-label {
-            display: block;
-            font-weight: 600;
-            color: #0366d6;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
-        }
-        .research-field p {
-            color: #333;
-            font-size: 1rem;
-        }
-        /* Tools Tags */
-        .tools-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 5px;
-        }
-        .tool-tag {
-            background: #f1f8ff;
-            color: #0366d6;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            border: 1px solid #c8e1ff;
-        }
-        /* Publications List Customization */
-        .research-publications {
-            list-style-type: none !important;
-            margin-left: 0 !important;
-        }
-        .research-publications li {
-            position: relative;
-            padding-left: 15px;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        .research-publications li::before {
-            content: "•";
-            color: #0366d6;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        /* Image Display & Fallback Box */
-        .research-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            border: 1px solid #e1e4e8;
-            object-fit: cover;
-        }
-        .research-img-fallback {
-            display: none; /* Only reveals if image file is missing */
-            background: #f6f8fa;
-            border: 1px dashed #e1e4e8;
-            height: 250px;
-            border-radius: 6px;
-            align-items: center;
-            justify-content: center;
-            color: #6a737d;
-            font-style: italic;
-            text-align: center;
-            padding: 20px;
-        }
+    /* Research Layout System */
+    .research-container {
+      display: flex;
+      gap: 30px;
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .research-info {
+      flex: 1.3; /* Gives slightly more horizontal space to text */
+    }
+    .research-visual {
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .research-title {
+      font-size: 1.4rem;
+      color: #24292e;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .research-field {
+      margin-bottom: 20px;
+    }
+    .research-field:last-child {
+      margin-bottom: 0;
+    }
+    .field-label {
+      display: block;
+      font-weight: 600;
+      color: #0366d6;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    .research-field p {
+      color: #333;
+      font-size: 1rem;
+    }
+    /* Tools Tags */
+    .tools-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .tool-tag {
+      background: #f1f8ff;
+      color: #0366d6;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #c8e1ff;
+    }
+    /* Publications List Customization */
+    .research-publications {
+      list-style-type: none !important;
+      margin-left: 0 !important;
+    }
+    .research-publications li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .research-publications li::before {
+      content: "•";
+      color: #0366d6;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    /* Image Display & Fallback Box */
+    .research-visual img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #e1e4e8;
+      object-fit: cover;
+    }
+    .research-img-fallback {
+      display: none; /* Only reveals if image file is missing */
+      background: #f6f8fa;
+      border: 1px dashed #e1e4e8;
+      height: 250px;
+      border-radius: 6px;
+      align-items: center;
+      justify-content: center;
+      color: #6a737d;
+      font-style: italic;
+      text-align: center;
+      padding: 20px;
+    }
 
-        /* Mobile layout adjustment for Research */
-        @media (max-width: 768px) {
-            .research-container {
-                flex-direction: column-reverse;
-                gap: 20px;
-            }
-            .research-visual {
-                width: 100%;
-            }
-        }
+    /* Mobile layout adjustment for Research */
+    @media (max-width: 768px) {
+      .research-container {
+	flex-direction: column-reverse;
+	gap: 20px;
+      }
+      .research-visual {
+	width: 100%;
+      }
+    }
 
 
-        /* Mobile Responsive layout changes */
-        @media (max-width: 600px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-	    body {
-	      padding-top: 110px;
-	    }
-	    .container {
-	      padding: 20px;
-	    }
-	}
+    /* Mobile Responsive layout changes */
+    @media (max-width: 600px) {
+      .nav-container {
+	flex-direction: column;
+	gap: 10px;
+      }
+      .nav-menu {
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+      }
+      body {
+	padding-top: 110px;
+      }
+      .container {
+	padding: 20px;
+      }
+    }
     </style>
-</head>
-<body>
+  </head>
+  <body>
 
-  <!-- Sticky Top Navigation Bar -->
-  <nav>
-    <div class="nav-container">
-      <a href="#" class="nav-logo">My Portfolio</a>
-      <ul class="nav-menu">
-	<li><a href="#learning">My Learning</a></li>
-	<li><a href="#research">Research</a></li>
-	<li><a href="#awards">Awards</a></li>
-	<li><a href="#art">My Art</a></li>
-	<li><a href="#leadership">Leadership</a></li>
-	<li><a href="#community">Community Service</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container">
-    <header>
-      <h1>Welcome to My Student Space</h1>
-      <p class="subtitle">High School Portfolio & Creative Archive</p>
-
-    </header>
-    <!-- About me -->
-    <section id="about">
-      <p>I am a motivated high-school senior at McLean High School in McLean, VA, interested in science and arts and everything in between.</p>
-    </section>
-    <!-- My Learning Section -->
-    <!--section id="learning">
-      <h2>My Learning</h2>
-      <div class="card">
-      <h3>Current Coursework & Goals</h3>
-      <p>List your favorite subjects, AP/IB classes, or online bootcamps here. Mention topics you enjoy exploring during study hours or group projects.</p>
+    <!-- Sticky Top Navigation Bar -->
+    <nav>
+      <div class="nav-container">
+	<a href="#" class="nav-logo">My Portfolio</a>
+	<ul class="nav-menu">
+	  <li><a href="#learning">My Learning</a></li>
+	  <li><a href="#research">Research</a></li>
+	  <li><a href="#awards">Awards</a></li>
+	  <li><a href="#art">My Art</a></li>
+	  <li><a href="#leadership">Leadership</a></li>
+	  <li><a href="#community">Community Service</a></li>
+	</ul>
       </div>
-      </section-->
+    </nav>
 
-      <!-- Research Section -->
-      <section id="research">
-	<h2>Research</h2>
+    <div class="container">
+      <header>
+	<h1>Welcome to My Student Space</h1>
+	<p class="subtitle">High School Portfolio & Creative Archive</p>
 
-	<div class="research-container">
-	  <div class="research-info">
-	    <h3 class="research-title">Risk-aware Reinforcement Learning</h3>
-
-	    <div class="research-field">
-	      <span class="field-label">Core Hypothesis:</span>
-	      <p> <i>Can reinforcement learning algorithms be made better by incorporating risk sensitivity during training?</i></p>
-	    </div>
-	    <div class="research-field">
-	      <span class="field-label">Tools Used:</span>
-	      <div class="tools-tags">
-		<span class="tool-tag">Python</span>
-		<span class="tool-tag">Gymnasium</span>
-		<span class="tool-tag">Stable-Baselines3</span>
-	      </div>
-	    </div>
-
-	    <div class="research-field">
-	      <span class="field-label">Publications & Presentations:</span>
-	      <ul class="research-publications">
-		<li>Chandola, Jaivi, et al. "<strong>Optimizing UAV Performance In Adverse Flying Conditions Using Reinforcement Learning.</strong>" Journal of Student-Scientists' Research (2025).</li>
-		<li>Chandola, Jaivi, and Zhang, Kaiqing. "<strong>Understanding the Effects of Risk Sensitivity in Training a Reinforcement Learning Algorithm for Automated Parking of a Self-Driving Car.</strong>" Junior Science and Humanities Symposium Greater Washington DC (2025).</li>
-	      </ul>
-	    </div>
-	  </div>
-	  <div class="research-info">
-	    <h3 class="research-title">AI for Understanding Speech Disorders</h3>
-
-	    <div class="research-field">
-	      <span class="field-label">Core Hypothesis:</span>
-	      <p> <i>Can reinforcement learning algorithms be made better by incorporating risk sensitivity during training?</i></p>
-	    </div>
-	    <div class="research-field">
-	      <span class="field-label">Tools Used:</span>
-	      <div class="tools-tags">
-		<span class="tool-tag">Python</span>
-		<span class="tool-tag">Pandas</span>
-		<span class="tool-tag">Git</span>
-		<span class="tool-tag">Google Colab</span>
-		<span class="tool-tag">Scikit-Learn</span>
-	      </div>
-	    </div>
-
-	    <div class="research-field">
-	      <span class="field-label">Publications & Presentations:</span>
-	      <ul class="research-publications">
-		<li>TBD</li>
-	      </ul>
-	    </div>
-	  </div>
-
+      </header>
+      <!-- About me -->
+      <section id="about">
+	<p>I am a motivated high-school senior at McLean High School in McLean, VA, interested in science and arts and everything in between.</p>
+      </section>
+      <!-- My Learning Section -->
+      <!--section id="learning">
+	<h2>My Learning</h2>
+	<div class="card">
+	<h3>Current Coursework & Goals</h3>
+	<p>List your favorite subjects, AP/IB classes, or online bootcamps here. Mention topics you enjoy exploring during study hours or group projects.</p>
 	</div>
-      </section>
+	</section-->
 
-      <!-- Awards Section -->
-      <section id="awards">
-	<h2>Awards</h2>
-	<ul>
-	  <li><strong>Advanced Placement (AP) Scholar with Distinction</strong>. Completed AP Coursework: AP Precalculus BC (5), AP World History (5), AP Macroeconomics (5), AP Computer Science Principles (4), AP Seminar (4)</li>
-	  <li><strong>Member</strong> of the National Honor Society</li>
-	  <li><strong>Selected Participant</strong> for the 2025 and 2026 Terp Young Scholars program at University of Maryland College Park</li>
-	  <li><strong>Selected Intern</strong> for the 2025 Aspiring Scientists Summer Internship Program at George Mason University</li>
-	  <li><strong>Selected Poster Presenter</strong> for the 2025 Junior Science and Humanities Symposium for the Greater Washington DC Area</li>
-	  <li><strong>Selected Participant</strong> for the 2024 Girls Talk Math Summer Camp at UMD</li>
-	  <li><strong>Selected Attendee</strong> for the 2024 TRAILS AI Summer Academy at UMD</li>
-	  <li><strong>Honorable Mention</strong> for the 2024 NCWIT Award of Aspirations in Computing</li>
-	  <li><strong>Winner</strong> in Celebrating Art Fall 2025 Contest</li>
-	  <li><strong>Featured Artist</strong> in 2025 Children’s Mangrove Art Contest</li>
-	  <li><strong>Certificate of Recognition</strong> - 2023 National Chinese EXPO of Student Works</li>
-	  <li><strong>Winner</strong> - 2023 Longfellow Middle School Spelling Bee</li>
-	  <li><strong>District and Regional Winner</strong> - 2022 Rotary Club Four-Way Test Essay ($850 total cash prize)</li>
-	  <li><strong>Academic Distinction</strong> - Skipped grade 5 due to exemplary academic performance</li>
-	</ul>
-      </section>
+	<!-- Research Section -->
+	<section id="research">
+	  <h2>Research</h2>
 
-      <!-- My Art Section -->
-      <section id="art">
-	<h2>My Art</h2>
-	<p>Click on any artwork image to view it in full screen magnified mode.</p>
+	  <div class="research-container">
+	    <div class="research-info">
+	      <h3 class="research-title">Risk-aware Reinforcement Learning</h3>
 
-	<div class="art-grid">
+	      <div class="research-field">
+		<span class="field-label">Core Hypothesis:</span>
+		<p> <i>Can reinforcement learning algorithms be made better by incorporating risk sensitivity during training?</i></p>
+	      </div>
+	      <div class="research-field">
+		<span class="field-label">Tools Used:</span>
+		<div class="tools-tags">
+		  <span class="tool-tag">Python</span>
+		  <span class="tool-tag">Gymnasium</span>
+		  <span class="tool-tag">Stable-Baselines3</span>
+		</div>
+	      </div>
 
-	  <!-- Artwork 1 -->
-	  <div class="art-card">
-	    <div class="art-image-wrapper" onclick="openMagnifier('art_sample1.jpg')">
-	      <img src="art_sample1.jpg" alt="Rainforest">
-	      <span class="art-placeholder-text">[ Click to Preview ]</span>
-	    </div>
-	    <div class="art-details">
-	      <div class="art-title">Rainforest</div>
-	      <div class="art-meta">
-		<div><strong>Date:</strong> October 2025</div>
-		<div><strong>Medium:</strong> Watercolor</div>
+	      <div class="research-field">
+		<span class="field-label">Publications & Presentations:</span>
+		<ul class="research-publications">
+		  <li>Chandola, Jaivi, et al. "<strong>Optimizing UAV Performance In Adverse Flying Conditions Using Reinforcement Learning.</strong>" Journal of Student-Scientists' Research (2025).</li>
+		  <li>Chandola, Jaivi, and Zhang, Kaiqing. "<strong>Understanding the Effects of Risk Sensitivity in Training a Reinforcement Learning Algorithm for Automated Parking of a Self-Driving Car.</strong>" Junior Science and Humanities Symposium Greater Washington DC (2025).</li>
+		</ul>
 	      </div>
 	    </div>
-	  </div>
+	    <div class="research-info">
+	      <h3 class="research-title">AI for Understanding Speech Disorders</h3>
 
-	  <!-- Artwork 2 -->
-	  <div class="art-card">
-	    <div class="art-image-wrapper" onclick="openMagnifier('image2.jpg')">
-	      <img src="image2.jpg" alt="Artwork 2 Title">
-	      <span class="art-placeholder-text">[ Click to Preview ]</span>
-	    </div>
-	    <div class="art-details">
-	      <div class="art-title">Sunset Over the Valley</div>
-	      <div class="art-meta">
-		<div><strong>Date:</strong> October 2025</div>
-		<div><strong>Medium:</strong> Acrylic on Canvas</div>
+	      <div class="research-field">
+		<span class="field-label">Core Hypothesis:</span>
+		<p> <i>Can reinforcement learning algorithms be made better by incorporating risk sensitivity during training?</i></p>
+	      </div>
+	      <div class="research-field">
+		<span class="field-label">Tools Used:</span>
+		<div class="tools-tags">
+		  <span class="tool-tag">Python</span>
+		  <span class="tool-tag">Pandas</span>
+		  <span class="tool-tag">Git</span>
+		  <span class="tool-tag">Google Colab</span>
+		  <span class="tool-tag">Scikit-Learn</span>
+		</div>
+	      </div>
+
+	      <div class="research-field">
+		<span class="field-label">Publications & Presentations:</span>
+		<ul class="research-publications">
+		  <li>TBD</li>
+		</ul>
 	      </div>
 	    </div>
+
 	  </div>
-      </section>
-      <!-- Leadership Section -->
-      <section id="leadership">
-	<h2>Leadership</h2>
-	<ul>
-	  <li><strong>Secretary</strong> of the National French Honor Society at McLean High School (2025-2026)</li>
-	  <li><strong>Media and Outreach Leader</strong> of Bright Beats Virginia Chapter</li>
-	</ul>
-	<!--div class="card">
-	  <h3>Volunteer Coordinator</h3>
-	  <p>Describe your volunteer hours, club work, or community events. Highlight your tasks, hours served, and how your group impacted the local neighborhood.</p>
-	  </div-->
-      </section>
-      <!-- Community Service Section -->
-      <section id="community">
-	<h2>Community Service</h2>
-	<ul>
-	  <li><strong>Mentor</strong> at Timber Lane Elementary School (2024-2025). I mentored 5th grade students for an hour every week.</li>
-	  <li><strong>Volunteer</strong> at the preschool and afterschool programs at the Redeemer Lutheran Preschool (2022-2023).</li>
-	</ul>
-	<!--div class="card">
-	  <h3>Volunteer Coordinator</h3>
-	  <p>Describe your volunteer hours, club work, or community events. Highlight your tasks, hours served, and how your group impacted the local neighborhood.</p>
-	  </div-->
-      </section>
+	</section>
 
-      <footer>
-	<p>&copy; 2026 My Student Portfolio. Powered by GitHub Pages.</p>
-      </footer>
-      </div>
+	<!-- Awards Section -->
+	<section id="awards">
+	  <h2>Awards</h2>
+	  <ul>
+	    <li><strong>Advanced Placement (AP) Scholar with Distinction</strong>. Completed AP Coursework: AP Precalculus BC (5), AP World History (5), AP Macroeconomics (5), AP Computer Science Principles (4), AP Seminar (4)</li>
+	    <li><strong>Member</strong> of the National Honor Society</li>
+	    <li><strong>Selected Participant</strong> for the 2025 and 2026 Terp Young Scholars program at University of Maryland College Park</li>
+	    <li><strong>Selected Intern</strong> for the 2025 Aspiring Scientists Summer Internship Program at George Mason University</li>
+	    <li><strong>Selected Poster Presenter</strong> for the 2025 Junior Science and Humanities Symposium for the Greater Washington DC Area</li>
+	    <li><strong>Selected Participant</strong> for the 2024 Girls Talk Math Summer Camp at UMD</li>
+	    <li><strong>Selected Attendee</strong> for the 2024 TRAILS AI Summer Academy at UMD</li>
+	    <li><strong>Honorable Mention</strong> for the 2024 NCWIT Award of Aspirations in Computing</li>
+	    <li><strong>Winner</strong> in Celebrating Art Fall 2025 Contest</li>
+	    <li><strong>Featured Artist</strong> in 2025 Children’s Mangrove Art Contest</li>
+	    <li><strong>Certificate of Recognition</strong> - 2023 National Chinese EXPO of Student Works</li>
+	    <li><strong>Winner</strong> - 2023 Longfellow Middle School Spelling Bee</li>
+	    <li><strong>District and Regional Winner</strong> - 2022 Rotary Club Four-Way Test Essay ($850 total cash prize)</li>
+	    <li><strong>Academic Distinction</strong> - Skipped grade 5 due to exemplary academic performance</li>
+	  </ul>
+	</section>
 
-</body>
+	<!-- My Art Section -->
+	<section id="art">
+	  <h2>My Art</h2>
+	  <p>Click on any artwork image to view it in full screen magnified mode.</p>
+
+	  <div class="art-grid">
+
+	    <!-- Artwork 1 -->
+	    <div class="art-card">
+	      <div class="art-image-wrapper" onclick="openMagnifier('art_sample1.jpg')">
+		<img src="art_sample1.jpg" alt="Rainforest">
+		<span class="art-placeholder-text">[ Click to Preview ]</span>
+	      </div>
+	      <div class="art-details">
+		<div class="art-title">Rainforest</div>
+		<div class="art-meta">
+		  <div><strong>Date:</strong> October 2025</div>
+		  <div><strong>Medium:</strong> Watercolor</div>
+		</div>
+	      </div>
+	    </div>
+
+	    <!-- Artwork 2 -->
+	    <div class="art-card">
+	      <div class="art-image-wrapper" onclick="openMagnifier('art_sample1.jpg')">
+		<img src="art_sample1.jpg" alt="Artwork 2 Title">
+		<span class="art-placeholder-text">[ Click to Preview ]</span>
+	      </div>
+	      <div class="art-details">
+		<div class="art-title">Sunset Over the Valley</div>
+		<div class="art-meta">
+		  <div><strong>Date:</strong> October 2025</div>
+		  <div><strong>Medium:</strong> Acrylic on Canvas</div>
+		</div>
+	      </div>
+	    </div>
+	</section>
+	<!-- Leadership Section -->
+	<section id="leadership">
+	  <h2>Leadership</h2>
+	  <ul>
+	    <li><strong>Secretary</strong> of the National French Honor Society at McLean High School (2025-2026)</li>
+	    <li><strong>Media and Outreach Leader</strong> of Bright Beats Virginia Chapter</li>
+	  </ul>
+	  <!--div class="card">
+	    <h3>Volunteer Coordinator</h3>
+	    <p>Describe your volunteer hours, club work, or community events. Highlight your tasks, hours served, and how your group impacted the local neighborhood.</p>
+	    </div-->
+	</section>
+	<!-- Community Service Section -->
+	<section id="community">
+	  <h2>Community Service</h2>
+	  <ul>
+	    <li><strong>Mentor</strong> at Timber Lane Elementary School (2024-2025). I mentored 5th grade students for an hour every week.</li>
+	    <li><strong>Volunteer</strong> at the preschool and afterschool programs at the Redeemer Lutheran Preschool (2022-2023).</li>
+	  </ul>
+	  <!--div class="card">
+	    <h3>Volunteer Coordinator</h3>
+	    <p>Describe your volunteer hours, club work, or community events. Highlight your tasks, hours served, and how your group impacted the local neighborhood.</p>
+	    </div-->
+	</section>
+
+	<footer>
+	  <p>&copy; 2026 My Student Portfolio. Powered by GitHub Pages.</p>
+	</footer>
+	</div>
+	<div id="artLightbox" class="lightbox" onclick="closeMagnifier()">
+        <span class="lightbox-close" onclick="closeMagnifier()">&times;</span>
+        <img id="magnifiedImage" src="" alt="Magnified view" onclick="event.stopPropagation()">
+    </div>
+	<script>
+	  function openMagnifier(imageSrc) {
+	    var lightbox = document.getElementById('artLightbox');
+	    var expandedImg = document.getElementById('magnifiedImage');
+
+	    if (lightbox && expandedImg) {
+	      expandedImg.src = imageSrc;
+	      lightbox.style.display = 'flex';
+	    } else {
+	      console.error("Error: Could not find artLightbox or magnifiedImage elements in the HTML.");
+	    }
+	  }
+
+	  function closeMagnifier() {
+	    var lightbox = document.getElementById('artLightbox');
+	    if (lightbox) {
+	      lightbox.style.display = 'none';
+	    }
+	  }
+	</script>
+  </body>
 </html>
